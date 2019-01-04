@@ -1,9 +1,6 @@
-import os
-
-PROJECT_DIR = os.path.abspath(os.path.dirname(__file__))
 SECRET_KEY = 'dmzyql+1uz-9f3eb^ns3cj!#b6p(kb2cw!6lwg+z=-o9+1w8z*'
-DEBUG = True
-ALLOWED_HOSTS = []
+DEBUG = False
+ALLOWED_HOSTS = ['*']
 
 INSTALLED_APPS = [
     'django.contrib.auth',
@@ -23,7 +20,10 @@ WSGI_APPLICATION = 'drfconcurrency.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(PROJECT_DIR, 'default.db'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'postgres',
+        'USER': 'postgres',
+        'HOST': 'db',
+        'PORT': 5432,
     }
 }
